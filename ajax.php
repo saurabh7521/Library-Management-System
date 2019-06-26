@@ -14,7 +14,7 @@ $Name = $_POST['search'];
 
 //Search query.
 
-   $Query = "SELECT Title, Author FROM books WHERE Title LIKE '%$Name%' LIMIT 5";
+   $Query = "SELECT Title, Author FROM books WHERE Title LIKE '%$Name%' or Author like '%$Name%'";
 
 //Query execution
 
@@ -40,7 +40,7 @@ $Name = $_POST['search'];
 
         By passing fetched result as parameter. -->
 
-   <li onclick='fill("<?php echo $Result['Name']; ?>")'>
+   <li onclick='fill("<?php echo $Result['Title']; ?>")'>
 
    <a>
 
