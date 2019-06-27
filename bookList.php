@@ -6,6 +6,13 @@
   </head>
   <title> home page </title>
 <head>
+<!-- Including jQuery is required. -->
+
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+   <!-- Including our scripting file. -->
+
+   <script type="text/javascript" src="script.js"></script>
 <style>
    body {
     background-repeat: no-repeat;
@@ -35,6 +42,8 @@ li a, .dropbtn {
 
 li a:hover, .dropdown:hover .dropbtn {
   background-color: #ddd;
+  text-decoration: none;
+  color: grey;
 }
 
 li.dropdown {
@@ -67,6 +76,7 @@ li a.active {
   color: white;
   background-color: #4CAF50;
 }
+
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -92,9 +102,9 @@ li a.active {
 <body>
 
 <ul>
-  <li><a href="#">Home</a></li>
+  <li><a href="index.html">Home</a></li>
   <li><a href="#">About Us</a></li>
-  <li><a class="active" href="#">Books Lists</a></li>
+  <li><a class="active" href="#">Books List</a></li>
   <li><a href="#">Happenings</a></li>
   <li><a href="#">Contact Us</a></li>
   <li class="dropdown">
@@ -122,8 +132,13 @@ li a.active {
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
+						
                                 echo "<thead>";
                                     echo "<tr>";
+									 echo "<p>search here</p><input type=text align=center> <div id=display></div>";
+									 
+									echo "</tr>";
+									echo "<tr>";
                                         echo "<th>Reference Number</th>";
                                         echo "<th>Title</th>";
                                         echo "<th>Author</th>";

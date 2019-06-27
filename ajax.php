@@ -2,7 +2,7 @@
 
 //Including Database configuration file.
 
-include "db.php";
+include "config.php";
 
 //Getting value of "search" variable from "script.js".
 
