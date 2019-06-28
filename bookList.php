@@ -123,7 +123,9 @@ li a.active {
                         <h2 class="pull-left">Book Details</h2>
                         <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
                     </div>
-                    <?php
+                    <p>search here</p><input type=text align=center id="search" placeholder="Enter Book or Title"> <div id=display></div>
+
+					<?php
                     // Include config file
                     require_once "config.php";
                     
@@ -135,7 +137,6 @@ li a.active {
 						
                                 echo "<thead>";
                                     echo "<tr>";
-									 echo "<p>search here</p><input type=text align=center> <div id=display></div>";
 									 
 									echo "</tr>";
 									echo "<tr>";

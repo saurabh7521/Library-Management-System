@@ -18,7 +18,7 @@ $Name = $_POST['search'];
 
 //Query execution
 
-   $ExecQuery = MySQLi_query($con, $Query);
+   $ExecQuery = MySQLi_query($link, $Query);
 
 //Creating unordered list to display result.
 
