@@ -1,29 +1,15 @@
 <?php
-
-//Including Database configuration file.
-
-include "config.php";
-
-//Getting value of "search" variable from "script.js".
-
-if (isset($_POST['search'])) {
-
-//Search box value assigning to $Name variable.
-
-$Name = $_POST['search'];
-
-//Search query.
-
-   $Query = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books WHERE Title LIKE '%$Name%' or Author like '%$Name%'";
-
-//Query execution
-
-   if($result = mysqli_query($link, $Query)){
+                    // Include config file
+                    include "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books";
+                    if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
 						
                                 echo "<thead>";
-                             
+                                    
 									echo "<tr>";
                                         echo "<th>Reference Number</th>";
                                         echo "<th>Title</th>";
@@ -42,6 +28,7 @@ $Name = $_POST['search'];
                                         echo "<td>" . $row['Genre'] . "</td>";
 										echo "<td>" . $row['Shelf'] . "</td>";
 										echo "<td>" . $row['Rack'] . "</td>";
+                                        
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
@@ -57,8 +44,4 @@ $Name = $_POST['search'];
  
                     // Close connection
                     mysqli_close($link);
-
-//Creating unordered list to display result.
-
-}
-?>
+                    ?>

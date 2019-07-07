@@ -11,7 +11,35 @@ function fill(Value) {
    $('#display').hide();
 
 }
+function fetchBooks(){
+	 $.ajax({
 
+               //AJAX type is "Post".
+
+               type: "POST",
+
+               //Data will be sent to "ajax.php".
+
+               url: "fetchBooks.php",
+
+               //Data, that will be sent to "ajax.php".
+
+               data: {
+
+               },
+
+               //If result found, this funtion will be called.
+
+               success: function(html) {
+
+                   //Assigning result to "display" div in "search.php" file.
+
+                   $("#display").html(html).show();
+
+               }
+
+           });
+}
 $(document).ready(function() {
 
    //On pressing a key on "Search box" in "search.php" file. This function will be called.
@@ -28,7 +56,7 @@ $(document).ready(function() {
 
            //Assigning empty value to "display" div in "search.php" file.
 
-           $("#display").html("");
+          fetchBooks();
 
        }
 
