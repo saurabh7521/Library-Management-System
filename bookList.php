@@ -7,6 +7,7 @@
   <title> home page </title>
 <head>
 <!-- Including jQuery is required. -->
+     
 
    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
@@ -179,20 +180,20 @@ border-bottom:2px solid;
 <form method="POST">
  <ul class="filter">
  <h4>Filter By Genre</h4>
-   <?php
-$connection = mysql_connect('localhost', 'root','');
-$link = mysql_select_db('library', $connection);
 
- $sql = mysql_query("SELECT * FROM `books` GROUP BY `Genre`");
-
+ <?php
+ $connection = mysql_connect('localhost', 'root','');
  
-  ?>
-
- 
- <label><?php echo 'Fiction' ;?></label><input type="checkbox"/>
- <label><?php echo 'Science fiction' ;?></label><input type="checkbox"/>
- <label><?php echo 'Non-fiction' ;?></label><input type="checkbox"/></br>
- <label><?php echo 'classic' ;?></label><input type="checkbox"/>
+$db = mysql_select_db('library', $connection);
+  $sql = mysql_query("SELECT distinct genre FROM `books`");
+  while($rows=mysql_fetch_array($sql))
+  {
+  ?> 
+ <div id="check-box">
+ <?php echo $rows['genre'];?>
+ <input type="checkbox" name="ids[]" value="<?php echo $rows['genre'];?>"/><br></div>
+ <?php }
+ ?>
   
    </ul>
 
