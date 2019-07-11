@@ -64,33 +64,36 @@
   <div class="container-fluid text-center">    
     <div class="row content">
       <div class="col-sm-2 sidenav">
-          <form method="POST">
-            </br></br></br></br></br>
-            <p><h4>Genre</h4></p>
-            <?php
-            $connection = mysql_connect('localhost', 'root','');
-            $db = mysql_select_db('library', $connection);
-            $sql = mysql_query("SELECT distinct genre FROM `books`");
-            while($rows=mysql_fetch_array($sql))
-            {
-              ?>
-              <div class="checkbox" align="left">
-                <label><input type="checkbox" name="ids[]" value="<?php echo $rows['genre'];?>" class="ids"><?php echo $rows['genre'];?></label>
-              </div>
-              <?php 
-            }
-            ?>
-          </form>
-      </div>
-      <div class="col-sm-8 text-left"> 
-        <h1>List of Books</h1>
-       <hr>
-       <input class="form-control m-4 pb-5" type="text" id="search" placeholder="Enter Title or Author to Search" aria-label="Search">
-       </br>
-       <div id=display>
-         <script type="text/javascript">fetchBooks();</script>
-       </div>
-     </div>
+        <form method="POST">
+        </br></br></br></br></br>
+        <p><h4>Genre</h4></p>
+        <?php
+        $connection = mysql_connect('localhost', 'root','');
+        $db = mysql_select_db('library', $connection);
+        $sql = mysql_query("SELECT distinct genre FROM `books`");
+        while($rows=mysql_fetch_array($sql))
+        {
+          ?>
+          <div class="checkbox" align="left">
+            <label><input type="checkbox" name="ids[]" value="<?php echo $rows['genre'];?>" class="ids"><?php echo $rows['genre'];?></label>
+          </div>
+          <?php 
+        }
+        ?>
+        <div id=genreList>
+          <script type="text/javascript">fetchGenres();</script>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>List of Books</h1>
+      <hr>
+      <input class="form-control m-4 pb-5" type="text" id="search" placeholder="Enter Title or Author to Search" aria-label="Search">
+    </br>
+    <div id=bookList>
+     <script type="text/javascript">fetchBooks();</script>
+   </div>
+ </div>
     <!-- <div class="col-sm-2 sidenav">
       <div class="well">
         <p>ADS</p>
