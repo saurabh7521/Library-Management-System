@@ -120,86 +120,21 @@ li a.active {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="page-header clearfix">
+				<div id=genre class="col-md-4">
+<script type='text/javascript'>fetchGenre();</script>
+					                </div>
+                    <div class="page-header clearfix col-md-8">
                         <h2 class="pull-left">Book Details</h2>
                         <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
-                    </div>
-                    <p>search here</p><input type=text align=center id="search" placeholder="Enter Book or Title"> <div id=display></div>
+                    
+                    <p>search here</p><input type=text align=center id="search" placeholder="Enter Book or Title"> 
+					
+					<div id=display align="right"></div>
 <script type='text/javascript'>fetchBooks();</script>
-					                </div>
+					                </div></div>
             </div>        
         </div>
-    </div>
-	 <!-- live check-box functionality -->
-	  <script type="text/javascript" src="jquery.js"></script> 
-<script>
-$(document).ready(function(){
-$('.ids').on('change',function(){ //on checkboxes check
-//sending checkbox value into serialize form
-var hi=$('.ids:checked').serialize();
- if(hi){
-$.ajax({
-type: "POST",
-cache: false,
-url: "filter.php",
-data:{brandss:hi},
-success: function(response){
-document.getElementById('getdata').style.display = "block";
-document.getElementById("getdata").innerHTML = response;
-$('#result').hide();
-}
-});
-}
-else
-{
-document.getElementById('getdata').style.display = "none";
-$('#result').show();
-}
-});
-});
-</script>
-<style>
-#frm
-{
-width:150px;
-float:left;
-}
-#result
-{
-border:2px dotted #ededed;
-height:auto;
-width:350px;
-}
-h3
-{
-border-bottom:2px solid;
-}
-</style>
+    </div>	
 
-  <div id="frm" >
-<form method="POST">
- <ul class="filter">
- <h4>Filter By Genre</h4>
-
- <?php
- $connection = mysql_connect('localhost', 'root','');
- 
-$db = mysql_select_db('library', $connection);
-  $sql = mysql_query("SELECT distinct genre FROM `books`");
-  while($rows=mysql_fetch_array($sql))
-  {
-  ?> 
- <div id="check-box">
- <?php echo $rows['genre'];?>
- <input type="checkbox" name="ids[]" value="<?php echo $rows['genre'];?>"/><br></div>
- <?php }
- ?>
-  
-   </ul>
-
-</form>
-</div>
-  
-	 
 </body>
 </html>
