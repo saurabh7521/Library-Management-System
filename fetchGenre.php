@@ -10,7 +10,7 @@
 				echo "<ul class='filter'>";
 				echo "<h4>Genre</h4>";
 				while($row = mysqli_fetch_array($result)){
-					echo "<label>" . $row['genre'] . "</label><input type='checkbox' name='ids[]' value=" . $row['genre'] . "/></br>";
+					echo "<label>" . $row['genre'] . "</label><input type='checkbox' class='ids' name='ids[]' value='" . $row['genre'] . "'></br>";
 				}
 				echo "</ul>";
 				echo "</form>";

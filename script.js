@@ -133,10 +133,8 @@ console.log('search');
 
 });
 $(document).ready(function(){
-console.log('ready');
-	$('.ids').on('change',function(){ //on checkboxes check
+	$('#genre').on('change','.ids',function(){ //on checkboxes check
 	//sending checkbox value into serialize form
-	console.log('test');
 	var hi=$('.ids:checked').serialize();
 	if(hi){
 		$.ajax({
