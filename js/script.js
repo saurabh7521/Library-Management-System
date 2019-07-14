@@ -5,7 +5,7 @@ function fetchGenres(){
    data: {
    },
    success: function(html) {
-     $("#GenreList").html(html).show();
+     $("#genreList").html(html).show();
    }
  });
 }
@@ -17,45 +17,60 @@ function fetchBooks(){
    },
    success: function(html) {
      $("#bookList").html(html).show();
+     $('table').dataTable();
    }
  });  
 }
-$(document).ready(function() {
-  $("#search").keyup(function() {
-   var name = $('#search').val();
-   if (name == "") {
-     fetchBooks();
+/*function totalBooks(){
+ $.ajax({
+   type: "POST",
+   url: "totalBooks.php",
+   data: {
+   },
+   success: function(html) {
+     $("#totalBooks").html(html).show();
    }
-   else {
-     $.ajax({
-       type: "POST",
-       url: "ajax.php",
-       data: {
-         search: name
-       },
-       success: function(html) {
-         $("#bookList").html(html).show();
-       }
-     });
-   }
- });
-});
+ });  
+}*/
+// $(document).ready(function() {
+//   $("#search").keyup(function() {
+//    var name = $('#search').val();
+//    /*var hi=$('.ids:checked').serialize();*/
+//      $.ajax({
+//        type: "POST",
+//        url: "ajax.php",
+//        data: {
+//          search: name/*,
+//          brandss:hi*/
+//        },
+//        success: function(html) {
+//          $("#bookList").html(html).show();
+//        }
+//      });
+//  });
+// });
 $(document).ready(function() {
-$('.ids').on('change',function(){ //on checkboxes check
+$('#genreList').on('change','.ids',function(){ //on checkboxes check
+  /*var name = $('#search').val();*/
   var hi=$('.ids:checked').serialize();
-  if(hi){
+  if(hi /*|| name !=""*/){
     $.ajax({
       type: "POST",
       cache: false,
       url: "filter.php",
-      data:{brandss:hi},
+      data: {
+         /*search: name,*/
+         brandss:hi
+       },
       success: function(html){
         $("#bookList").html(html).show();
+        $('table').dataTable();
       }
     });
   }
   else
   {  
+    fetchBooks();
   }
 });
 });

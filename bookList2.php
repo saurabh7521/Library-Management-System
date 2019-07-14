@@ -10,9 +10,7 @@
   <script type="text/javascript" src="js/script.js"></script>
   <link rel="stylesheet" href="dist/simplePagination.css" />
   <script src="dist/jquery.simplePagination.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css"/>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js"></script>
+
   <style>
   /* Remove the navbar's default margin-bottom and rounded borders */ 
   .navbar {
@@ -41,6 +39,14 @@
 </style>
 </head>
 <body>
+  <?php 
+  include_once("config.php");
+  $perPage = 10;
+  $sqlQuery = "SELECT * FROM books";
+  $result = mysqli_query($link, $sqlQuery);
+  $totalRecords = mysqli_num_rows($result);
+  $totalPages = ceil($totalRecords/$perPage)
+  ?>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -60,7 +66,7 @@
           <li><a href="#">Contact Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><button class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
     </div>
@@ -80,12 +86,21 @@
       <h1>List of Books</h1>
       <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">
       <hr>
-      <!-- <input class="form-control m-4 pb-5" type="text" id="search" placeholder="Enter Title or Author to Search" aria-label="Search"> -->
+      <input class="form-control m-4 pb-5" type="text" id="search" placeholder="Enter Title or Author to Search" aria-label="Search">
     </br>
     <div id=bookList>
-      <script type="text/javascript">fetchBooks();</script>
+           <script type="text/javascript">fetchBooks();</script>
     </div>
-  </div>
+    <nav><ul class="pagination">
+      <?php if(!empty($totalPages)):for($i=1; $i<=$totalPages; $i++):  
+      if($i == 1):?>
+      <li class='active'  id="<?php echo $i;?>"><a href='fetchBooks.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
+    <?php else:?>
+      <li id="<?php echo $i;?>"><a href='fetchBooks.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
+    <?php endif;?>          
+  <?php endfor;endif;?>
+</ul></nav>
+</div>
 </div>
     <!-- <div class="col-sm-2 sidenav">
       <div class="well">
@@ -101,4 +116,18 @@
   <p>@copyright</p>
 </footer>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.pagination').pagination({
+        items: <?php echo $totalRecords;?>,
+        itemsOnPage: <?php echo $perPage;?>,
+        cssStyle: 'light-theme',
+    currentPage : 1,
+    onPageClick : function(pageNumber) {
+      jQuery("#bookList").html('loading...');
+      jQuery("#bookList").load("fetchBooks.php?page=" + pageNumber);
+    }
+    });
+});
+</script>
 </html>

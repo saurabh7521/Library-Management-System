@@ -5,17 +5,23 @@
 include "config.php";
 
 //Getting value of "search" variable from "script.js".
-
-if (isset($_POST['search'])) {
+// echo "<p>$_POST['search']     $_POST['brandss']</p>"
+if (isset($_POST['search']) /*&& $_POST['brandss']*/) {
 
 //Search box value assigning to $Name variable.
-
+ /* $brandis=array();
+  parse_str($_POST['brandss'],$brandis); //changing string into array 
+  foreach($brandis as $ids)
+  {
+    $ids;
+  }
+  $brandii=implode("','",$ids);*/
   $Name = $_POST['search'];
 
 //Search query.
 
+  /*  $sql = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books WHERE Title LIKE '%$Name%' and genre in ('$brandii') UNION SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books WHERE Author like '%$Name%' and genre in ('$brandii')";*/
   $sql = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books WHERE Title LIKE '%$Name%' or Author like '%$Name%'";
-
   if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
       echo "<table class='table table-bordered table-striped'>";
