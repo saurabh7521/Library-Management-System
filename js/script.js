@@ -57,8 +57,8 @@ function fetchGenre(){
 // $(document).ready(function() {
 
 //    //On pressing a key on "Search box" in "search.php" file. This function will be called.
-
-
+   
+   
 
 //    $("#search").keyup(function() {
 //        //Assigning search box value to javascript variable named as "name".
@@ -140,8 +140,6 @@ $(document).ready(function(){
       data:{brandss:hi},
       success: function(html){
        $("#display").html(html).show();
-       $("table").dataTable();
-
      }
    });
 	}

@@ -7,6 +7,19 @@ include "config.php";
 //Getting value of "search" variable from "script.js".
 
 if (isset($_POST['search'])) {
+	if($_POST['brandss']){
+
+//unserialize to jquery serialize variable value
+$brandis=array();
+
+parse_str($_POST['brandss'],$brandis); //changing string into array 
+
+//split 1st array elements
+foreach($brandis as $ids)
+{
+$ids;
+}
+$brandii=implode("','",$ids);
 
 //Search box value assigning to $Name variable.
 
@@ -14,7 +27,7 @@ $Name = $_POST['search'];
 
 //Search query.
 
-   $Query = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books WHERE Title LIKE '%$Name%' or Author like '%$Name%'";
+   $Query = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books WHERE Title LIKE '%$Name%' or Author like '%$Name%' and genre IN ('$brandii')";
 
 //Query execution
 
@@ -56,7 +69,7 @@ $Name = $_POST['search'];
                     }
  
                     // Close connection
-                    mysqli_close($link);
+	mysqli_close($link);}
 
 //Creating unordered list to display result.
 
