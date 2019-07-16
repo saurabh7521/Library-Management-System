@@ -21,6 +21,41 @@ function fetchBooks(){
    }
  });  
 }
+function submitLogin(){
+  var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+  var username = $('#username').val();
+  var password = $('#password').val();
+  var login = "";
+  if(username.trim() == '' ){
+    $('#formErrors').html('Please enter your username.').show();
+    $('#username').focus();
+    return false;
+  }else if(password.trim() == '' ){
+    $('#formErrors').html('Please enter your password.').show();
+    $('#password').focus();
+    return false;
+  }else{
+    $('#formErrors').hide();
+    $.ajax({
+      type:'POST',
+      url:'login.php',
+      data:'username='+username+'&password='+password,
+      beforeSend: function () {
+        $('.submitBtn').attr("disabled","disabled");
+        $('.modal-body').css('opacity', '.5');
+      },
+      success:function(msg){
+        $('.submitBtn').removeAttr("disabled");
+        $('.modal-body').css('opacity', '');
+        if (msg=='ok'){
+          window.location.href = "dashboard.php";
+        } else {
+          $('#formErrors').html(msg).show();
+        }
+      }
+    });
+  }
+}
 /*function totalBooks(){
  $.ajax({
    type: "POST",
@@ -59,14 +94,14 @@ $('#genreList').on('change','.ids',function(){ //on checkboxes check
       cache: false,
       url: "filter.php",
       data: {
-         /*search: name,*/
-         brandss:hi
-       },
-      success: function(html){
-        $("#bookList").html(html).show();
-        $('table').dataTable();
-      }
-    });
+       /*search: name,*/
+       brandss:hi
+     },
+     success: function(html){
+      $("#bookList").html(html).show();
+      $('table').dataTable();
+    }
+  });
   }
   else
   {  
