@@ -48,7 +48,7 @@ function submitLogin(){
         $('.submitBtn').removeAttr("disabled");
         $('.modal-body').css('opacity', '');
         if (msg=='ok'){
-          window.location.href = "dashboard.php";
+          window.location.href = "admin/index.php";
         } else {
           $('#formErrors').html(msg).show();
         }

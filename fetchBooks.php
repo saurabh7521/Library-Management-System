@@ -1,13 +1,6 @@
 <?php
 include "config.php";
-$perPage = 10;
-if (isset($_GET["page"])) { 
-    $page  = $_GET["page"]; 
-} else { 
-    $page=1; 
-};
-$startFrom = ($page-1) * $perPage;  
-/*ORDER BY Title ASC LIMIT $startFrom, $perPage*/
+
 $sql = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
