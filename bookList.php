@@ -34,6 +34,9 @@
 			background-color: #555;
 			color: white;
 			padding: 15px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
 		}
 
 		/* On small screens, set height to 'auto' for sidenav and grid */
@@ -60,15 +63,51 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="bookList.php">Book List</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="bookList.php">Book List</a></li>
 					<li><a href="#">Happenings</a></li>
 					<li><a href="#">About Us</a></li>
 					<li><a href="#">Contact Us</a></li>
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modalForm"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<!-- Modal -->
+					<div class="modal fade" id="modalForm" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden="true">&times;</span>
+										<span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title" id="loginLabel">Login</h4>
+								</div>
+
+								<!-- Modal Body -->
+								<div class="modal-body">
+									<div class="alert alert-warning" id=formErrors hidden>
+									</div>
+									<form role="form">
+										<div class="form-group">
+											<label for="username">Username</label>
+											<input type="text" class="form-control" id="username" placeholder="Enter your username" required="required"/>
+										</div>
+										<div class="form-group">
+											<label for="password">Password</label>
+											<input type="password" class="form-control" id="password" placeholder="Enter your password" required="required"/>
+										</div>
+									</form>
+								</div>
+
+								<!-- Modal Footer -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary submitBtn" onclick="submitLogin()">Login</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</ul>
 			</div>
 		</div>
@@ -100,9 +139,10 @@
 		</div>
 	</div>
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
+	<footer class="container-fluid text-center">	<p>Footer Text</p>
 	</footer>
+</div>
+</body>
 
 </body>
 </html>

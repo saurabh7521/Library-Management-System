@@ -1,18 +1,3 @@
-//Getting value from "ajax.php".
-
-function fill(Value) {
-
-   //Assigning value to "search" div in "search.php" file.
-
-   $('#search').val(Value);
-
-   var hi=$('.ids:checked').serialize();
-   
-   //Hiding "display" div in "search.php" file.
-
-   $('#display').hide();
-
- }
  function fetchBooks(){
   $.ajax({
     type: "POST",
@@ -57,8 +42,8 @@ function fetchGenre(){
 // $(document).ready(function() {
 
 //    //On pressing a key on "Search box" in "search.php" file. This function will be called.
-   
-   
+
+
 
 //    $("#search").keyup(function() {
 //        //Assigning search box value to javascript variable named as "name".
@@ -140,6 +125,8 @@ $(document).ready(function(){
       data:{brandss:hi},
       success: function(html){
        $("#display").html(html).show();
+       $("table").dataTable();
+
      }
    });
 	}
@@ -150,3 +137,38 @@ $(document).ready(function(){
   }
 });
 });
+function submitLogin(){
+  var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+  var username = $('#username').val();
+  var password = $('#password').val();
+  var login = "";
+  if(username.trim() == '' ){
+    $('#formErrors').html('Please enter your username.').show();
+    $('#username').focus();
+    return false;
+  }else if(password.trim() == '' ){
+    $('#formErrors').html('Please enter your password.').show();
+    $('#password').focus();
+    return false;
+  }else{
+    $('#formErrors').hide();
+    $.ajax({
+      type:'POST',
+      url:'login.php',
+      data:'username='+username+'&password='+password,
+      beforeSend: function () {
+        $('.submitBtn').attr("disabled","disabled");
+        $('.modal-body').css('opacity', '.5');
+      },
+      success:function(msg){
+        $('.submitBtn').removeAttr("disabled");
+        $('.modal-body').css('opacity', '');
+        if (msg=='ok'){
+          window.location.href = "admin/index.php";
+        } else {
+          $('#formErrors').html(msg).show();
+        }
+      }
+    });
+  }
+}
