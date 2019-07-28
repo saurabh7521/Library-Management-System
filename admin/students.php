@@ -85,12 +85,12 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="books.php">
           <i class="fas fa-fw fa-book"></i>
           <span>Books</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="students.php">
             <i class="fas fa-fw fa-users"></i>
             <span>Students</span></a>
@@ -130,7 +130,7 @@
                   <div class="card-header">
                     <i class="fas fa-table"></i>
                     All Books 
-                    <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Add New Book</button>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Register a new student</button>
                   </div>
 
                   <!-- Bootstrap Modal - To Add New Record -->
@@ -140,7 +140,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New Record</h4>
+                          <h4 class="modal-title" id="myModalLabel">Register Student</h4>
                         </div>
                         <div class="modal-body">
 
@@ -178,7 +178,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary" onclick="addBook()">Add Book</button>
+                          <button type="button" class="btn btn-primary" onclick="addBook()">Register</button>
                         </div>
                       </div>
                     </div>
