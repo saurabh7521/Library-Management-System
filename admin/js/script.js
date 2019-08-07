@@ -13,14 +13,13 @@
 // Add Record 
 function addBook() {
     // get values
+    var Ref = $("#ref").val();
+    var Author = $("#author").val();
+    var Title = $("#title").val();
+    var Genre = $("#genre").val();
+    var Shelf = $("#shelf").val();
+    var Rack = $("#rack").val();
     $.ajax ({
-        var Ref = $("#ref").val();
-        var Author = $("#author").val();
-        var Title = $("#title").val();
-        var Genre = $("#genre").val();
-        var Shelf = $("#shelf").val();
-        var Rack = $("#rack").val();
-
     // Add record
     type: "post",
     url:"addBooks.php",
@@ -96,6 +95,68 @@ function DeleteBook(id) {
     var conf = confirm("Are you sure, do you really want to delete this bookk?");
     if (conf == true) {
         $.post("deleteBook.php", {
+            id: id
+        },
+    /*       function (data, status) {
+                // reload Users by using readRecords();
+                readRecords();
+            }*/
+            );
+    }
+}
+/*now onwarads, students' code*/
+function fetchStudents(){
+  $.ajax({
+    type: "POST",
+    url: "readAllStudents.php",
+    data: {
+    },
+    success: function(html) {
+        $("#tbody").html(html).show();
+        $("#dataTable").dataTable();
+    }
+});
+}
+
+function addStudent() {
+    // get values
+    var s_name = $("#s-name").val();
+    var s_class = $("#s-class").val();
+    var s_mail = $("#s-mail").val();
+    var s_mob = $("#s-mob").val();
+
+    $.ajax ({
+    // Add record
+    type: "post",
+    url:"addStudents.php",
+    cache: false,
+    data: {
+        s_name: s_name,
+        s_class: s_class,
+        s_mail: s_mail,
+        s_mob: s_mob,
+        
+    },
+    success: function (data, status) {
+        // close the popup
+        $("#add_new_record_modal").modal("hide");
+        // clear fields from the popup
+        $("#s-name").val("");
+        $("#s-class").val("");
+        $("#s-mail").val("");
+        $("#s-mob").val("");
+
+        fetchStudents();
+
+    }
+
+});
+}
+
+function DeleteStudent(id) {
+    var conf = confirm("Are you sure, do you really want to delete this student?");
+    if (conf == true) {
+        $.post("DeleteStudent.php", {
             id: id
         },
     /*       function (data, status) {

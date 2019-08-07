@@ -110,26 +110,31 @@
                   <i class="fas fa-fw fa-thumbs-down"></i>
                   <span>Non Returned</span></a>
                 </li>
+                  <li class="nav-item">
+              <a class="nav-link" href="issued_books.php">
+                <i class="fas fa-fw fa-thumbs-up"></i>
+                <span>Issued Books</span></a>
+              </li>
               </ul>
 
               <div id="content-wrapper">
 
                 <div class="container-fluid">
 
-                
+
                   <!-- Breadcrumbs-->
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                       <a href="#">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active">Books</li>
+                    <li class="breadcrumb-item active">Students</li>
                   </ol>
                 </div>
                 <!-- /.container-fluid -->
                 <div class="card mb-3">
                   <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    All Books 
+                    <i class="fas fa-users"></i>
+                    All Students 
                     <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Register a new student</button>
                   </div>
 
@@ -147,38 +152,28 @@
                           <div class="form-group">
 
                             <div class="form-group">
-                              <label for="ref">Reference Number</label>
-                              <input type="text" id="ref" placeholder="Add Reference Number" class="form-control" />
+                              <label for="ref">Student Name</label>
+                              <input type="text" id="s-name" placeholder="Add Student Name" class="form-control" />
                             </div>
 
                             <div class="form-group">
-                              <label for="author">Author</label>
-                              <input type="text" id="author" placeholder="Add Author" class="form-control" />
+                              <label for="author">Class</label>
+                              <input type="text" id="s-class" placeholder="Add Class" class="form-control" />
                             </div>
 
-                            <label for="title">Title</label>
-                            <input type="text" id="title" placeholder="Add Title" class="form-control" />
+                            <label for="title">E-mail</label>
+                            <input type="text" id="s-mail" placeholder="Add E-mail" class="form-control" />
                           </div>
 
                           <div class="form-group">
-                            <label for="genre">Genre</label>
-                            <input type="text" id="genre" placeholder="Add Genre" class="form-control" />
-                          </div>
-
-                          <div class="form-group">
-                            <label for="shelf">Shelf</label>
-                            <input type="text" id="shelf" placeholder="Add Shelf" class="form-control" />
-                          </div>
-
-                          <div class="form-group">
-                            <label for="rack">Rack</label>
-                            <input type="text" id="rack" placeholder="Add Rack" class="form-control" />
+                            <label for="genre">Mobile</label>
+                            <input type="text" id="s-mob" placeholder="Add Mobile" class="form-control" />
                           </div>
 
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary" onclick="addBook()">Register</button>
+                          <button type="button" class="btn btn-primary" onclick="addStudent()">Register</button>
                         </div>
                       </div>
                     </div>
@@ -189,28 +184,24 @@
                       <table class="table table-bordered" id='dataTable' width="100%" cellspacing="0">
                         <thead>
                           <tr>
-                            <th>Reference Number</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Genre</th>
-                            <th>Shelf</th>
-                            <th>Rack</th>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>E-mail</th>
+                            <th>Mobile</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
                         <tfoot>
                           <tr>
-                           <th>Reference Number</th>
-                           <th>Title</th>
-                           <th>Author</th>
-                           <th>Genre</th>
-                           <th>Shelf</th>
-                           <th>Rack</th>
+                           <th>Student name</th>
+                           <th>Class</th>
+                           <th>E-mail</th>
+                           <th>Mobile</th>
                            <th>Actions</th>
                          </tr>
                        </tfoot>
                        <tbody id='tbody'>
-                         <script type='text/javascript'>fetchBooks();</script>
+                        <script type='text/javascript'>fetchStudents();</script>
                        </tbody>
                      </table>
                    </div>

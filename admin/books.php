@@ -109,6 +109,11 @@
                 <a class="nav-link" href="non-returned.php">
                   <i class="fas fa-fw fa-thumbs-down"></i>
                   <span>Non Returned</span></a>
+                   <li class="nav-item">
+                  <a class="nav-link" href="issued_books.php">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Issued Books</span></a>
+                  </li>
                 </li>
               </ul>
 
