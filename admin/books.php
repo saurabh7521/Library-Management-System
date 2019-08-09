@@ -109,158 +109,209 @@
                 <a class="nav-link" href="non-returned.php">
                   <i class="fas fa-fw fa-thumbs-down"></i>
                   <span>Non Returned</span></a>
-                   <li class="nav-item">
-                  <a class="nav-link" href="issued_books.php">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>Issued Books</span></a>
-                  </li>
-                </li>
-              </ul>
-
-              <div id="content-wrapper">
-
-                <div class="container-fluid">
-
-                
-                  <!-- Breadcrumbs-->
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                      <a href="#">Dashboard</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="issued_books.php">
+                      <i class="fas fa-fw fa-book"></i>
+                      <span>Issued Books</span></a>
                     </li>
-                    <li class="breadcrumb-item active">Books</li>
-                  </ol>
-                </div>
-                <!-- /.container-fluid -->
-                <div class="card mb-3">
-                  <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    All Books 
-                    <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Add New Book</button>
+                  </li>
+                </ul>
+
+                <div id="content-wrapper">
+
+                  <div class="container-fluid">
+
+
+                    <!-- Breadcrumbs-->
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="#">Dashboard</a>
+                      </li>
+                      <li class="breadcrumb-item active">Books</li>
+                    </ol>
                   </div>
+                  <!-- /.container-fluid -->
+                  <div class="card mb-3">
+                    <div class="card-header">
+                      <i class="fas fa-table"></i>
+                      All Books 
+                      <button class="btn btn-success" data-toggle="modal" data-target="#add_new_record_modal">Add New Book</button>
+                    </div>
 
-                  <!-- Bootstrap Modal - To Add New Record -->
-                  <!-- Modal -->
-                  <div class="modal fade" id="add_new_record_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New Record</h4>
-                        </div>
-                        <div class="modal-body">
-
-                          <div class="form-group">
+                    <!-- Bootstrap Modal - To Add New Record -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="add_new_record_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Add New Record</h4>
+                          </div>
+                          <div class="modal-body">
 
                             <div class="form-group">
-                              <label for="ref">Reference Number</label>
-                              <input type="text" id="ref" placeholder="Add Reference Number" class="form-control" />
+
+                              <div class="form-group">
+                                <label for="ref">Reference Number</label>
+                                <input type="text" id="ref" placeholder="Add Reference Number" class="form-control" />
+                              </div>
+
+                              <div class="form-group">
+                                <label for="author">Author</label>
+                                <input type="text" id="author" placeholder="Add Author" class="form-control" />
+                              </div>
+
+                              <label for="title">Title</label>
+                              <input type="text" id="title" placeholder="Add Title" class="form-control" />
                             </div>
 
                             <div class="form-group">
-                              <label for="author">Author</label>
-                              <input type="text" id="author" placeholder="Add Author" class="form-control" />
+                              <label for="genre">Genre</label>
+                              <input type="text" id="genre" placeholder="Add Genre" class="form-control" />
                             </div>
 
-                            <label for="title">Title</label>
-                            <input type="text" id="title" placeholder="Add Title" class="form-control" />
-                          </div>
+                            <div class="form-group">
+                              <label for="shelf">Shelf</label>
+                              <input type="text" id="shelf" placeholder="Add Shelf" class="form-control" />
+                            </div>
 
-                          <div class="form-group">
-                            <label for="genre">Genre</label>
-                            <input type="text" id="genre" placeholder="Add Genre" class="form-control" />
-                          </div>
+                            <div class="form-group">
+                              <label for="rack">Rack</label>
+                              <input type="text" id="rack" placeholder="Add Rack" class="form-control" />
+                            </div>
 
-                          <div class="form-group">
-                            <label for="shelf">Shelf</label>
-                            <input type="text" id="shelf" placeholder="Add Shelf" class="form-control" />
                           </div>
-
-                          <div class="form-group">
-                            <label for="rack">Rack</label>
-                            <input type="text" id="rack" placeholder="Add Rack" class="form-control" />
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="addBook()">Add Book</button>
                           </div>
-
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary" onclick="addBook()">Add Book</button>
+                      </div>
+                    </div> <!-- modal end for add new record -->
+
+                    <!-- Modal - Update User details -->
+                    <div class="modal fade" id="update_user_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Update</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label for="update_reference_number">Reference Number</label>
+                              <input type="text" id="update_reference_number" placeholder="Add Reference Number" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_author">Author</label>
+                              <input type="text" id="update_author" placeholder="Add Title" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_email">Title</label>
+                              <input type="text" id="update_title" placeholder="Add Title" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_genre">Genre</label>
+                              <input type="text" id="update_genre" placeholder="Add Genre" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_shelf">Shelf</label>
+                              <input type="text" id="update_shelf" placeholder="Add shelf" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_rack">Rack</label>
+                              <input type="text" id="update_rack" placeholder="Add Rack" class="form-control"/>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="UpdateBookDetails()" >Save Changes</button>
+                            <input type="hidden" id="hidden_user_id">
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div> <!-- modal end for add new record -->
+                    <!-- // Modal -->
 
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-bordered" id='dataTable' width="100%" cellspacing="0">
-                        <thead>
-                          <tr>
-                            <th>Reference Number</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Genre</th>
-                            <th>Shelf</th>
-                            <th>Rack</th>
-                            <th>Actions</th>
-                          </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                           <th>Reference Number</th>
-                           <th>Title</th>
-                           <th>Author</th>
-                           <th>Genre</th>
-                           <th>Shelf</th>
-                           <th>Rack</th>
-                           <th>Actions</th>
-                         </tr>
-                       </tfoot>
-                       <tbody id='tbody'>
-                         <script type='text/javascript'>fetchBooks();</script>
-                       </tbody>
-                     </table>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id='dataTable' width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Reference Number</th>
+                              <th>Title</th>
+                              <th>Author</th>
+                              <th>Genre</th>
+                              <th>Shelf</th>
+                              <th>Rack</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                             <th>Reference Number</th>
+                             <th>Title</th>
+                             <th>Author</th>
+                             <th>Genre</th>
+                             <th>Shelf</th>
+                             <th>Rack</th>
+                             <th>Actions</th>
+                           </tr>
+                         </tfoot>
+                         <tbody id='tbody'>
+                           <script type='text/javascript'>fetchBooks();</script>
+                         </tbody>
+                       </table>
+                     </div>
                    </div>
                  </div>
-               </div>
 
-               <!-- Sticky Footer -->
-               <footer class="sticky-footer">
-                <div class="container my-auto">
-                  <div class="copyright text-center my-auto">
-                    <span>Copyright © Your Website 2019</span>
+                 <!-- Sticky Footer -->
+                 <footer class="sticky-footer">
+                  <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                      <span>Copyright © Your Website 2019</span>
+                    </div>
                   </div>
-                </div>
-              </footer>
+                </footer>
+
+              </div>
+              <!-- /.content-wrapper -->
 
             </div>
-            <!-- /.content-wrapper -->
+            <!-- /#wrapper -->
 
-          </div>
-          <!-- /#wrapper -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+              <i class="fas fa-angle-up"></i>
+            </a>
 
-          <!-- Scroll to Top Button-->
-          <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-          </a>
-
-          <!-- Logout Modal-->
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="../logout.php">Logout</a>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="../logout.php">Logout</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        </body>
+          </body>
 
-        </html>
+          </html>

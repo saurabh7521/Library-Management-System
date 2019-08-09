@@ -14,7 +14,7 @@ if($result = mysqli_query($link, $sql)){
             echo "<td>" . $row['Genre'] . "</td>";
             echo "<td>" . $row['Shelf'] . "</td>";
             echo "<td>" . $row['Rack'] . "</td>";
-            echo "<td><button onclick='Update('".$row['id']."')'' class='btn btn-warning'>Update</button><button onclick='DeleteUser('".$row['id']."')' class='btn btn-danger'>Delete</button></td>";
+            echo "<td><button onclick='GetBookDetails('".$row['id']."')'' class='btn btn-warning'>Update</button><button onclick='DeleteBook('".$row['id']."')' class='btn btn-danger'>Delete</button></td>";
             echo "</tr>";
         }
                             // Free result set

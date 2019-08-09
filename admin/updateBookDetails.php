@@ -1,6 +1,4 @@
-
 <?php
-
 // include Database connection file
 include("config.php");
  
@@ -9,15 +7,15 @@ if(isset($_POST))
 {
     // get values
     $id = $_POST['id'];
-    $ref = $_POST['Ref'];
-    $author = $_POST['Author'];
-    $title = $_POST['Title'];
-    $shelf = $_POST['Shelf'];
-    $rack = $_POST['Rack'];
-    $genre = $_POST['Genre'];
+    $reference_number = $_POST['reference_number'];
+    $author = $_POST['author'];
+    $title = $_POST['title'];
+    $genre = $_POST['genre'];
+    $shelf = $_POST['shelf'];
+    $rack = $_POST['rack'];
  
     // Updaste User details
-    $query = "INSERT INTO books(Reference_number, Author, Title, Shelf, Rack, Genre) VALUES('$ref', '$author', '$title', '$shelf', '$rack', '$genre') where id = '$id'";
+    $query = "UPDATE books SET first_name = '$first_name', last_name = '$last_name', email = '$email' WHERE id = '$id'";    /*confused here too*/
     if (!$result = mysqli_query($link, $query)) {
         exit(mysqli_error($link));
     }
