@@ -109,11 +109,7 @@
                 <a class="nav-link" href="non-returned.php">
                   <i class="fas fa-fw fa-thumbs-down"></i>
                   <span>Non Returned</span></a>
-                  <li class="nav-item">
-                    <a class="nav-link" href="issued_books.php">
-                      <i class="fas fa-fw fa-book"></i>
-                      <span>Issued Books</span></a>
-                    </li>
+                 
                   </li>
                 </ul>
 
@@ -189,7 +185,7 @@
                       </div>
                     </div> <!-- modal end for add new record -->
 
-                    <!-- Modal - Update User details -->
+                    <!-- Modal - Update book details -->
                     <div class="modal fade" id="update_user_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">

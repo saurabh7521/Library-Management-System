@@ -14,4 +14,5 @@ if (!$result = mysqli_query($link, $query)) {
     exit(mysqli_error($link));
 }
 echo "1 student Added!";
+mysqli_close($link);
 ?>

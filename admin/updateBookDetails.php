@@ -15,8 +15,11 @@ if(isset($_POST))
     $rack = $_POST['rack'];
  
     // Updaste User details
-    $query = "UPDATE books SET first_name = '$first_name', last_name = '$last_name', email = '$email' WHERE id = '$id'";    /*confused here too*/
+    $query = "UPDATE books SET Reference_number = '$reference_number', Author = '$author', Title = '$title', Genre= '$genre', Shelf= '$shelf', Rack= '$rack'  WHERE id = '$id'";    
+
     if (!$result = mysqli_query($link, $query)) {
         exit(mysqli_error($link));
     }
 }
+mysqli_close($link);
+?>

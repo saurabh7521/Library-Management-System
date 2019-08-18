@@ -3,7 +3,7 @@
 include "config.php";
 
                     // Attempt select query execution
-$sql = "SELECT Reference_number, Title, Author, Genre, Shelf, Rack FROM books";
+$sql = "SELECT id, Reference_number, Title, Author, Genre, Shelf, Rack FROM books";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
@@ -14,7 +14,7 @@ if($result = mysqli_query($link, $sql)){
             echo "<td>" . $row['Genre'] . "</td>";
             echo "<td>" . $row['Shelf'] . "</td>";
             echo "<td>" . $row['Rack'] . "</td>";
-            echo "<td><button onclick='GetBookDetails('".$row['id']."')'' class='btn btn-warning'>Update</button><button onclick='DeleteBook('".$row['id']."')' class='btn btn-danger'>Delete</button></td>";
+            echo "<td><button onclick=\"GetBookDetails('".$row['id']."')\" class='btn btn-warning'>Update</button><button onclick=\"DeleteBook('".$row['id']."')\" class='btn btn-danger'>Delete</button></td>";
             echo "</tr>";
         }
                             // Free result set

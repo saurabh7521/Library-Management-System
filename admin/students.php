@@ -110,11 +110,7 @@
                   <i class="fas fa-fw fa-thumbs-down"></i>
                   <span>Non Returned</span></a>
                 </li>
-                  <li class="nav-item">
-              <a class="nav-link" href="issued_books.php">
-                <i class="fas fa-fw fa-thumbs-up"></i>
-                <span>Issued Books</span></a>
-              </li>
+                
               </ul>
 
               <div id="content-wrapper">
@@ -153,21 +149,21 @@
 
                             <div class="form-group">
                               <label for="ref">Student Name</label>
-                              <input type="text" id="s-name" placeholder="Add Student Name" class="form-control" />
+                              <input type="text" id="s_name" placeholder="Add Student Name" class="form-control" />
                             </div>
 
                             <div class="form-group">
                               <label for="author">Class</label>
-                              <input type="text" id="s-class" placeholder="Add Class" class="form-control" />
+                              <input type="text" id="s_class" placeholder="Add Class" class="form-control" />
                             </div>
 
                             <label for="title">E-mail</label>
-                            <input type="text" id="s-mail" placeholder="Add E-mail" class="form-control" />
+                            <input type="text" id="s_mail" placeholder="Add E-mail" class="form-control" />
                           </div>
 
                           <div class="form-group">
                             <label for="genre">Mobile</label>
-                            <input type="text" id="s-mob" placeholder="Add Mobile" class="form-control" />
+                            <input type="text" id="s_mob" placeholder="Add Mobile" class="form-control" />
                           </div>
 
                         </div>
@@ -178,6 +174,47 @@
                       </div>
                     </div>
                   </div> <!-- modal end for add new record -->
+
+                  <!-- Modal - Update User details -->
+                    <div class="modal fade" id="update_student_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Update</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label for="update_student_name">Student Name</label>
+                              <input type="text" id="update_student_name" placeholder="Add Student Name" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_class">Class</label>
+                              <input type="text" id="update_class" placeholder="Add Class" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_email">E-mail</label>
+                              <input type="text" id="update_email" placeholder="Add E-mail" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="update_mobile">Mobile</label>
+                              <input type="text" id="update_mobile" placeholder="Add Mobile" class="form-control"/>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="UpdateStudentDetails()">Save Changes</button>
+                            <input type="hidden" id="hidden_user_id">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- // Modal -->
 
                   <div class="card-body">
                     <div class="table-responsive">

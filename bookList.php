@@ -102,7 +102,7 @@
 								</div>
 
 								<!-- Modal Footer -->
-								<div class="modal-footer">
+								<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 									<button type="button" class="btn btn-primary submitBtn" onclick="submitLogin()">Login</button>
 								</div>
 							</div>
@@ -139,8 +139,14 @@
 		</div>
 	</div>
 
-	<footer class="container-fluid text-center">	<p>Footer Text</p>
-	</footer>
+	 <!-- Sticky Footer -->
+               <footer class="sticky-footer">
+                <div class="container my-auto">
+                  <div class="copyright text-center my-auto">
+                    <span>Copyright © Your Website 2019</span>
+                  </div>
+                </div>
+              </footer>
 </div>
 </body>
 

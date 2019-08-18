@@ -5,11 +5,11 @@ include("config.php");
 // check request
 if(isset($_POST['id']) && isset($_POST['id']) != "")
 {
-    // get User ID
-    $book_id = $_POST['id'];
+    // get student ID
+    $stu_id = $_POST['id'];
  
-    // Get User Details
-    $query = "SELECT id, Reference_number, Author, Title, Shelf, Rack, Genre FROM books WHERE id = '$book_id'";
+    // Get student Details
+    $query = "SELECT id, Student_Name, Class, E_mail, Mobile FROM students WHERE id = '$stu_id'";
     if (!$result = mysqli_query($link, $query)) {
         exit(mysqli_error($link));
     }

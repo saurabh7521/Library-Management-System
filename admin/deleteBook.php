@@ -1,4 +1,3 @@
-
 <?php
 // check request
 if(isset($_POST['id']) && isset($_POST['id']) != "")
@@ -15,4 +14,5 @@ if(isset($_POST['id']) && isset($_POST['id']) != "")
         exit(mysqli_error($link));
     }
 }
+mysqli_close($link);
 ?>
