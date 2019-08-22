@@ -1,9 +1,9 @@
  // Toggle the side navigation
-  $("#sidebarToggle").on('click', function(e) {
+ $("#sidebarToggle").on('click', function(e) {
     e.preventDefault();
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
-  });
+});
  function fetchBooks(){
   $.ajax({
     type: "POST",
@@ -139,7 +139,7 @@ function DeleteBook(id) {
 }
 $(document).ready(function(){
     $("#return_date").datepicker();
-    });
+});
 /*now onwarads, students' code*/
 function fetchStudents(){
   $.ajax({
@@ -206,7 +206,7 @@ function GetStudentDetails(id) {
             $("#update_class").val(student.Class);
             $("#update_email").val(student.E_mail);
             $("#update_mobile").val(student.Mobile);
-    $("#update_student_modal").modal("show");
+            $("#update_student_modal").modal("show");
 
         }
     });
@@ -259,7 +259,7 @@ function DeleteStudent(id) {
 }
 /* Now on Code for Issued Books (Issued.php)*/
 
-fetchIssuedBooks() {
+function fetchIssuedBooks() {   
   $.ajax({
     type: "POST",
     url: "readAllIssuedBooks.php",
@@ -284,17 +284,17 @@ $(document).ready(function() {
    //On pressing a key on "Select Book" in "issued.php" file. This function will be called.
    $("#issue_book").keyup(function() {
       //Assigning search box value to javascript variable named as "name".
-       var name = $('#issue_book').val();
+      var name = $('#issue_book').val();
      //Validating, if "name" is empty.
-       if (name == "") {
+     if (name == "") {
            //Assigning empty value to "display" div in "search.php" file.
            $("#display").html("");
-     }
-      else {
-           $.ajax({
-               type: "POST",
-               url: "select_book_ajax.php",
-               data: {
+       }
+       else {
+         $.ajax({
+             type: "POST",
+             url: "select_book_ajax.php",
+             data: {
                    //Assigning value of "name" into "issue_book" variable.
                    search: name
                },
@@ -304,8 +304,8 @@ $(document).ready(function() {
                    $("#display").html(html).show();
                }
            });
-       }
-   });
+     }
+ });
 });
 /*now onwards code for search suggestiopn for 'select student' and 'select student'*/
 //Getting value from "ajax.php".
@@ -319,17 +319,17 @@ $(document).ready(function() {
    //On pressing a key on "Select Book" in "issued.php" file. This function will be called.
    $("#issue_student").keyup(function() {
       //Assigning search box value to javascript variable named as "name".
-       var name = $('#issue_student').val();
+      var name = $('#issue_student').val();
      //Validating, if "name" is empty.
-       if (name == "") {
+     if (name == "") {
            //Assigning empty value to "display1" div in "issued.php" file.
            $("#display1").html("");
-     }
-      else {
-           $.ajax({
-               type: "POST",
-               url: "select_student_ajax.php",
-               data: {
+       }
+       else {
+         $.ajax({
+             type: "POST",
+             url: "select_student_ajax.php",
+             data: {
                    //Assigning value of "name" into "issue_book" variable.
                    search: name
                },
@@ -339,6 +339,6 @@ $(document).ready(function() {
                    $("#display1").html(html).show();
                }
            });
-       }
-   });
+     }
+ });
 });
